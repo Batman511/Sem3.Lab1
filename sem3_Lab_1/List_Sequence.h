@@ -97,4 +97,25 @@ public:
 		return linked_list->EnterList();
 	}
 
+	/*
+	void Enter() {
+		std::cout << "Enter size of the sequence: ";
+		int count;
+		std::cin >> count;
+
+		for (int i = 0; i < count; i++) {
+			T data;
+			std::cout << "Element " << i << " : ";
+			std::cin >> data;
+			Prepend(data);
+		}
+
+	} */
+
+	void Copy(Sequence<T>* linked_list) {
+		for (int i = 0; i < linked_list->GetLength(); i++)
+			InsertAt(linked_list->Get(i), i);
+	}
+
+
 };

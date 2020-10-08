@@ -149,12 +149,12 @@ public:
 		if (index < 0 || index >= size) throw std::length_error(IndexOutOfRange);
 		Node* body{ head };
 
-		for (size_t i = 0; i < index - 1; i++) body = body->next;
+		for (size_t i = 0; i < index - 1 ; i++) body = body->next;
 
-		Node* newNode = new Node{ data,body->next };
+		Node* newNode = new Node{ data,(body->next)->next };
 		body->next = newNode;
 
-		this->size += 1;
+		//this->size += 1;
 	}
 
 	//Соединене двух списков

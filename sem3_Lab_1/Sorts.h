@@ -1,4 +1,5 @@
 #include "ArraySequence.h"
+#include "List_Sequence.h"
 
 
 //сортировка слиянием
@@ -13,21 +14,19 @@ Sequence<T>* MergeSort(Sequence<T>* mas, int left, int right) {
 	MergeSort(mas, left, middle);
 	MergeSort(mas, middle + 1, right);
 
-	int i(left), j(middle + 1); //начало пути левой и правой частей
+	int i(left), j(middle + 1); //начало пути левой и правой частей                ////////////////////////////////////////////
 	Sequence<T>* tmp = new ArraySequence<T>(right+1); //новый массив
-	//for (int k = 0; k < right; k++)
-	//	tmp->Prepend(0);
+	//for (int k = 0; k < right-1; k++)
+		//tmp->Prepend(0);
 
 	for (int step = 0; step < (right - left + 1); step++) {
 		//записываем меньший из элементов
 		if ((j > right) || ((i <= middle) && (mas->Get(i) < mas->Get(j)))) { //условие минимального в левой части
 			tmp->InsertAt(mas->Get(i),step);
-			//tmp->Prepend(mas->Get(i));
 			i++;
 		}
 		else { //условие минимального в правой части
 			tmp->InsertAt(mas->Get(j),step);
-			//tmp->Prepend(mas->Get(j));
 			j++;
 		}
 	}

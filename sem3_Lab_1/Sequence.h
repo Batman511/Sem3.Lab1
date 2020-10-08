@@ -16,6 +16,7 @@ public:
 	virtual T& operator [] (int index) const = 0;
 
 	virtual void Append(T values) = 0;
+	virtual void Copy(Sequence<T>* mas) = 0;
 	virtual void Prepend(T values) = 0;
 	virtual void InsertAt(T values, int index) = 0;
 	virtual void Print() = 0;

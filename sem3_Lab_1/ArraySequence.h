@@ -104,9 +104,10 @@ public:
 		mas->Print();
 	}
 
-	/*virtual void Enter() override {
-		mas->EnterMas();
-	} */
+	void Copy(Sequence<T>* mas)  {
+		for (int i = 0; i < mas->GetLength(); i++)
+			InsertAt(mas->Get(i),i);
+	}
 
 	void Enter() {
 		std::cout << "Enter size of the sequence: ";
