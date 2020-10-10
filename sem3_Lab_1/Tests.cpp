@@ -723,3 +723,141 @@ void test_SelectionSort() {
 
 
 }
+
+void test_for_List() {
+	std::cout << "   ***** TESTS MERGESORT + QUICKSORT + SELECTIONSORT *****   " << "\n";
+
+	int* mas1_{ new int[9] { 2,4,17,8,34,1,55,0,3 } };
+	LinkedListSequence<int> mas1(mas1_, 9);
+
+	MergeSort(&mas1, 0, 8);
+	if (mas1[0] == 0 && mas1[1] == 1 && mas1[2] == 2 && mas1[3] == 3 && mas1[4] == 4 && mas1[5] == 8
+		&& mas1[6] == 17 && mas1[7] == 34 && mas1[8] == 55)
+		std::cout << "Test Normal: success" << "\n";
+	else {
+		std::cout << "Test Normal: fail" << "\n";
+	};
+	delete[] mas1_;
+
+
+	int* mas2_{ new int[5] { 70,14000,84,1123,1000 } };
+	LinkedListSequence<int> mas2(mas2_, 5);
+
+	MergeSort(&mas2, 0, 4);
+	if (mas2[0] == 70 && mas2[1] == 84 && mas2[2] == 1000 && mas2[3] == 1123 && mas2[4] == 14000)
+		std::cout << "Test Big: success" << "\n";
+	else {
+		std::cout << "Test Big: fail" << "\n";
+	};
+	delete[] mas2_;
+
+
+	int* mas3_{ new int[1] { 4 } };
+	LinkedListSequence<int> mas3(mas3_, 1);
+
+	MergeSort(&mas3, 0, 0);
+	if (mas3[0] == 4)
+		std::cout << "Test One_element: success" << "\n";
+	else {
+		std::cout << "Test One_element: fail" << "\n";
+	};
+	delete[] mas3_;
+
+
+	int* mas4_{ new int[3] { 0,0,0 } };
+	LinkedListSequence<int> mas4(mas4_, 3);
+
+	QuickSort(&mas4, 0, 2);
+	if (mas4[0] == 0 && mas4[1] == 0 && mas4[2] == 0)
+		std::cout << "Test Zero: success" << "\n";
+	else {
+		std::cout << "Test Zero: fail" << "\n";
+	};
+	delete[] mas4_;
+
+
+	int* mas5_{ new int[6] { -23,0,-4,-10,-111,-1000 } };
+	LinkedListSequence<int> mas5(mas5_, 6);
+	QuickSort(&mas5, 0, 5);
+	if (mas5[0] == -1000 && mas5[1] == -111 && mas5[2] == -23 && mas5[3] == -10 && mas5[4] == -4
+		&& mas5[5] == 0)
+		std::cout << "Test Negative: success" << "\n";
+	else {
+		std::cout << "Test Negative: fail" << "\n";
+	};
+	delete[] mas5_;
+
+
+	int* mas6_{ new int[9] { 8,-4,-17,0,34,17,-26,48,0 } };
+	LinkedListSequence<int> mas6(mas6_, 9);
+
+	QuickSort(&mas6, 0, 8);
+	if (mas6[0] == -26 && mas6[1] == -17 && mas6[2] == -4 && mas6[3] == 0 && mas6[4] == 0 && mas6[5] == 8
+		&& mas6[6] == 17 && mas6[7] == 34 && mas6[8] == 48)
+		std::cout << "Test Mix: success" << "\n";
+	else {
+		std::cout << "Test Mix: fail" << "\n";
+	};
+	delete[] mas6_;
+
+	// Вызывается исключение о нулевом размере списка
+	/*
+	int* mas7_{ new int[0] { } };
+	LinkedListSequence<int> mas7(mas7_, 0);
+
+	MergeSort(&mas7, 0, 0);
+	if (mas7.GetLength() == 0)
+		std::cout << "Test Empty: success" << "\n";
+	else {
+		std::cout << "Test Empty: fail" << "\n";
+	};
+	delete[] mas7_;*/
+
+
+	int* mas8_{ new int[6] { 15,14,13,12,11,10 } };
+	LinkedListSequence<int> mas8(mas8_, 6);
+
+	SelectionSort(&mas8);
+	if (mas8[0] == 10 && mas8[1] == 11 && mas8[2] == 12 && mas8[3] == 13 && mas8[4] == 14 && mas8[5] == 15)
+		std::cout << "Test Back: success" << "\n";
+	else {
+		std::cout << "Test Back: fail" << "\n";
+	};
+	delete[] mas8_;
+
+
+	int* mas9_{ new int[6] { 10,11,12,13,14,15 } };
+	LinkedListSequence<int> mas9(mas9_, 6);
+
+	SelectionSort(&mas9);
+	if (mas9[0] == 10 && mas9[1] == 11 && mas9[2] == 12 && mas9[3] == 13 && mas9[4] == 14 && mas9[5] == 15)
+		std::cout << "Test Direction: success" << "\n";
+	else {
+		std::cout << "Test Direction: fail" << "\n";
+	};
+	delete[] mas9_;
+
+
+	int* mas10_{ new int[2] { 8,-1 } };
+	LinkedListSequence<int> mas10(mas10_, 2);
+
+	SelectionSort(&mas10);
+	if (mas10[0] == -1 && mas10[1] == 8)
+		std::cout << "Test Two_element: success" << "\n";
+	else {
+		std::cout << "Test Two_element: fail" << "\n";
+	};
+	delete[] mas10_;
+
+
+	double* mas11_{ new double[6] { -12.3,13.2,2.111,6.6,0,-2 } };
+	LinkedListSequence<double> mas11(mas11_, 6);
+
+	SelectionSort(&mas11);
+	if (mas11[0] == -12.3 && mas11[1] == -2 && mas11[2] == 0 && mas11[3] == 2.111 && mas11[4] == 6.6 && mas11[5] == 13.2)
+		std::cout << "Test Double: success" << "\n";
+	else {
+		std::cout << "Test Double: fail" << "\n";
+	};
+	delete[] mas11_;
+}

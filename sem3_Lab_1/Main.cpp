@@ -214,12 +214,6 @@ void interface() {
 				std::cout << "Time for Quicksort is " << time_sort2 << " mircosecond \n";
 				mas1_->Copy(mas1_copy);
 
-				/*auto start3 = std::chrono::high_resolution_clock::now();
-				SelectionSort(mas1_);
-				auto finish3 = std::chrono::high_resolution_clock::now();
-				auto duration3 = std::chrono::duration_cast<std::chrono::microseconds>(finish3 - start3);
-				double time_sort3 = duration3.count();*/
-
 				double time_sort3 = time_sort(mas1_, 3);
 				std::cout << "Time for Selectionsort is " << time_sort3 << " mircosecond \n";
 			}
@@ -321,12 +315,14 @@ void interface() {
 			std::cout << " Choose the test:\n"
 				"1. test_MergeSort \n"
 				"2. test_QuickSort\n"
-				"3. test_SelectionSort\n";
+				"3. test_SelectionSort\n"
+				"4. test_for_List\n";
 			std::cin >> test_choice;
 
 			if (test_choice == 1) test_MergeSort();
 			else if (test_choice == 2) test_QuickSort();
 			else if (test_choice == 3) test_SelectionSort();
+			else if (test_choice == 4) test_for_List();
 
 			break;
 		case 6:

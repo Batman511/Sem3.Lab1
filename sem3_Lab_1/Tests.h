@@ -8,4 +8,5 @@ int Test_List_Sequence();
 void test_MergeSort();
 void test_QuickSort();
 void test_SelectionSort();
+void test_for_List();
 

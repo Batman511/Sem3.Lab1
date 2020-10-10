@@ -149,11 +149,15 @@ public:
 		if (index < 0 || index >= size) throw std::length_error(IndexOutOfRange);
 		Node* body{ head };
 
-		for (size_t i = 0; i < index - 1 ; i++) body = body->next;
+		if (index == 0) {
+			body->values=data;
+		}
+		else {
+			for (size_t i = 0; i < index-1 ; i++) body = body->next;
 
-		Node* newNode = new Node{ data,(body->next)->next };
-		body->next = newNode;
-
+			Node* newNode = new Node{ data,(body->next)->next };
+			body->next = newNode;
+		}
 		//this->size += 1;
 	}
 
