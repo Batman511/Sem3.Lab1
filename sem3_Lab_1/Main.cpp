@@ -123,39 +123,21 @@ void interface() {
 			if (sort_choice == 1) {
 				if (type == 1) {int size = mas1->GetLength() ; MergeSort(mas1, 0, size - 1); }
 				if (type == 2) { int size = mas2->GetLength(); MergeSort(mas2, 0, size - 1); }
-				
-				if (type == 1) {
-					std::cout << "Right sequence: \n";
-					mas1->Print();
-				}
-				if (type == 2) {
-					std::cout << "Right sequence: \n";
-					mas2->Print();
-				}
 			} else if (sort_choice == 2) {
 				if (type == 1) { int size = mas1->GetLength(); QuickSort(mas1, 0, size - 1); }
 				if (type == 2) { int size = mas2->GetLength(); QuickSort(mas2, 0, size - 1); }
-
-				if (type == 1) {
-					std::cout << "Right sequence: \n";
-					mas1->Print();
-				}
-				if (type == 2) {
-					std::cout << "Right sequence: \n";
-					mas2->Print();
-				}
 			}else if (sort_choice == 3) {
 				if (type == 1)  SelectionSort(mas1); 
 				if (type == 2)  SelectionSort(mas2); 
+			}
 
-				if (type == 1) {
-					std::cout << "Right sequence: \n";
-					mas1->Print();
-				}
-				if (type == 2) {
-					std::cout << "Right sequence: \n";
-					mas2->Print();
-				}
+			if (type == 1) {
+				std::cout << "Right sequence: \n";
+				mas1->Print();
+			}
+			if (type == 2) {
+				std::cout << "Right sequence: \n";
+				mas2->Print();
 			}
 
 			delete[] mas1;
@@ -279,32 +261,15 @@ void interface() {
 			std::cout << "\n TimeList: \n";
 
 			if (type == 1 || type == 2) {
-				auto start11 = std::chrono::high_resolution_clock::now();
-				MergeSort(random__1, 0, size_random2 - 1);
-				auto finish11 = std::chrono::high_resolution_clock::now();
-				auto duration11 = std::chrono::duration_cast<std::chrono::microseconds>(finish11 - start11);
-				double time_sort11 = duration11.count();
-
+				double time_sort11 = time_sort(random__1, 1);
 				std::cout << "Time for Mergesort is " << time_sort11 << " mircosecond \n";
 				random__1->Copy(random__copy);
 
-
-				auto start22 = std::chrono::high_resolution_clock::now();
-				QuickSort(random__1, 0, size_random2 - 1);
-				auto finish22 = std::chrono::high_resolution_clock::now();
-				auto duration22 = std::chrono::duration_cast<std::chrono::microseconds>(finish22 - start22);
-				double time_sort22 = duration22.count();
-
+				double time_sort22 = time_sort(random__1, 2);
 				std::cout << "Time for Quicksort is " << time_sort22 << " mircosecond \n";
 				random__1->Copy(random__copy);
 
-
-				auto start33 = std::chrono::high_resolution_clock::now();
-				SelectionSort(random__1);
-				auto finish33 = std::chrono::high_resolution_clock::now();
-				auto duration33 = std::chrono::duration_cast<std::chrono::microseconds>(finish33 - start33);
-				double time_sort33 = duration33.count();
-
+				double time_sort33 = time_sort(random__1, 3);
 				std::cout << "Time for Selectionsort is " << time_sort33 << " mircosecond \n";
 			}
 
